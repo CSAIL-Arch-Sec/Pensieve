@@ -1,0 +1,281 @@
+root@0691dfed0aa1:/vagrant# raco test \
+>   ++arg --param-saved-params ++arg DoM \
+>   ++arg --param-saved-sizes ++arg DoM \
+>   src/main_veriSpec.rkt
+raco test: "src/main_veriSpec.rkt" "--param-saved-params" "DoM" "--param-saved-sizes" "DoM"
+Tests for veriSpec
+[ RUN      ] "get-bug-info"
+Finish Symbolic Execution.
+Finish STM Solver.
+Find Counterexample.
+CPU:
+debug-commitLog: ()  underSpec: #f  specBr-ROBlink(bv #x0 4)
+memi: history: ()
+Dcache:
+  history: (0 0 0 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 0
+  idle: (#t #t #t #t #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+
+datainReady: #f  ROBlink: (bv #x1 4)
+datainReady: #f  ROBlink: (bv #x3 4)
+datainReady: #f  ROBlink: (bv #x0 4)
+squash-E: #f  misPredBr-ROBlink-E: (bv #x0 4)  misPredBr-brID-E: (bv #b11 2)  nextPC-E: (bv #x0 4)
+CPU:
+debug-commitLog: ()  underSpec: #f  specBr-ROBlink(bv #x0 4)
+memi: history: (0 1 )
+Dcache:
+  history: (0 0 0 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 0
+  idle: (#t #t #t #t #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+
+datainReady: #f  ROBlink: (bv #x1 4)
+datainReady: #f  ROBlink: (bv #x3 4)
+datainReady: #f  ROBlink: (bv #x0 4)
+squash-E: #f  misPredBr-ROBlink-E: (bv #x0 4)  misPredBr-brID-E: (bv #b11 2)  nextPC-E: (bv #x0 4)
+---->pc: (bv #x0 4)  underSpec: #f  specBr-ROBlink: (bv #x0 4)
+---->pc: (bv #x1 4)  underSpec: #f  specBr-ROBlink: (bv #x1 4)
+---->pc: (bv #x2 4)  underSpec: #t
+CPU:
+debug-commitLog: ()  underSpec: #f  specBr-ROBlink(bv #x0 4)
+memi: history: (0 1 2 11 )
+Dcache:
+  history: (0 0 0 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 2
+  idle: (#f #f #t #t #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#t #t #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+
+datainReady: #f  ROBlink: (bv #x1 4)
+datainReady: #f  ROBlink: (bv #x3 4)
+datainReady: #t  ROBlink: (bv #x1 4)
+squash-E: #f  misPredBr-ROBlink-E: (bv #x0 4)  misPredBr-brID-E: (bv #b11 2)  nextPC-E: (bv #x0 4)
+---->pc: (bv #x2 4)  underSpec: #t  specBr-ROBlink: (bv #x2 4)
+---->pc: (bv #xb 4)  underSpec: #f  specBr-ROBlink: (bv #x3 4)
+---->pc: (bv #xc 4)  underSpec: #t
+---->pc: (bv #xc 4)  underSpec: #t
+return ROBlink: (bv #x1 4)
+CPU:
+debug-commitLog: ()  underSpec: #t  specBr-ROBlink(bv #x2 4)
+memi: history: (0 1 2 11 12 12 )
+Dcache:
+  history: (0 0 1 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 1 0 )timFct: (0 0 0 0 )buffer-brID: (1 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 4
+  idle: (#f #f #f #f #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#t #f #t #t #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #t #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 1 2 11 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (3 3 5 3 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 1 2 3 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #t #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+
+datainReady: #f  ROBlink: (bv #x1 4)
+datainReady: #f  ROBlink: (bv #x3 4)
+datainReady: #t  ROBlink: (bv #x0 4)
+squash-E: #f  misPredBr-ROBlink-E: (bv #x0 4)  misPredBr-brID-E: (bv #b11 2)  nextPC-E: (bv #x0 4)
+---->pc: (bv #xe 4)  underSpec: #t
+return ROBlink: (bv #x0 4)
+CPU:
+debug-commitLog: ()  underSpec: #f  specBr-ROBlink(bv #x0 4)
+memi: history: ()
+Dcache:
+  history: (0 0 0 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 0
+  idle: (#t #t #t #t #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+
+datainReady: #f  ROBlink: (bv #x1 4)
+datainReady: #f  ROBlink: (bv #x3 4)
+datainReady: #f  ROBlink: (bv #x0 4)
+squash-E: #f  misPredBr-ROBlink-E: (bv #x0 4)  misPredBr-brID-E: (bv #b11 2)  nextPC-E: (bv #x0 4)
+CPU:
+debug-commitLog: ()  underSpec: #f  specBr-ROBlink(bv #x0 4)
+memi: history: (0 1 )
+Dcache:
+  history: (0 0 0 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 0
+  idle: (#t #t #t #t #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+
+datainReady: #f  ROBlink: (bv #x1 4)
+datainReady: #f  ROBlink: (bv #x3 4)
+datainReady: #f  ROBlink: (bv #x0 4)
+squash-E: #f  misPredBr-ROBlink-E: (bv #x0 4)  misPredBr-brID-E: (bv #b11 2)  nextPC-E: (bv #x0 4)
+---->pc: (bv #x0 4)  underSpec: #f  specBr-ROBlink: (bv #x0 4)
+---->pc: (bv #x1 4)  underSpec: #f  specBr-ROBlink: (bv #x1 4)
+---->pc: (bv #x2 4)  underSpec: #t
+CPU:
+debug-commitLog: ()  underSpec: #f  specBr-ROBlink(bv #x0 4)
+memi: history: (0 1 2 11 )
+Dcache:
+  history: (0 0 0 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 2
+  idle: (#f #f #t #t #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#t #t #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+
+datainReady: #f  ROBlink: (bv #x1 4)
+datainReady: #f  ROBlink: (bv #x3 4)
+datainReady: #t  ROBlink: (bv #x1 4)
+squash-E: #f  misPredBr-ROBlink-E: (bv #x0 4)  misPredBr-brID-E: (bv #b11 2)  nextPC-E: (bv #x0 4)
+---->pc: (bv #x2 4)  underSpec: #t  specBr-ROBlink: (bv #x2 4)
+---->pc: (bv #xb 4)  underSpec: #f  specBr-ROBlink: (bv #x3 4)
+---->pc: (bv #xc 4)  underSpec: #t
+---->pc: (bv #xc 4)  underSpec: #t
+return ROBlink: (bv #x1 4)
+CPU:
+debug-commitLog: ()  underSpec: #t  specBr-ROBlink(bv #x2 4)
+memi: history: (0 1 2 11 12 12 )
+Dcache:
+  history: (0 0 1 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 1 0 )timFct: (0 0 0 0 )buffer-brID: (1 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 4
+  idle: (#f #f #f #f #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#t #f #t #t #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #t #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 1 2 11 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (3 3 5 3 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 1 2 3 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #t #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+
+datainReady: #f  ROBlink: (bv #x1 4)
+datainReady: #f  ROBlink: (bv #x3 4)
+datainReady: #f  ROBlink: (bv #xa 4)
+squash-E: #f  misPredBr-ROBlink-E: (bv #x0 4)  misPredBr-brID-E: (bv #b11 2)  nextPC-E: (bv #x0 4)
+---->pc: (bv #xe 4)  underSpec: #t
+Finish SMT Result Evaluation.
+cfg: memi:
+(0-th INST  Ld 12 2 2 : Reg[2] <- Mem[Reg[0]]
+1-th INST  Ld 13 1 0 : Reg[0] <- Mem[Reg[1]]
+2-th INST  Br 9 2 2 : If (Reg[2]==0) PC <- PC + 9
+3-th INST  Ld 7 0 0 : Reg[0] <- Mem[Reg[3]]
+4-th INST  Ld 0 0 0 : Reg[0] <- Mem[Reg[0]]
+5-th INST  Ld 0 0 0 : Reg[0] <- Mem[Reg[0]]
+6-th INST  Br 0 0 0 : If (Reg[0]==0) PC <- PC + 0
+7-th INST  Ld 0 0 0 : Reg[0] <- Mem[Reg[0]]
+8-th INST  Li 0 0 0 : Reg[0] <- 0
+9-th INST  Ld 0 0 0 : Reg[0] <- Mem[Reg[0]]
+10-th INST  Ld 0 0 0 : Reg[0] <- Mem[Reg[0]]
+11-th INST  Ld 12 3 1 : Reg[1] <- Mem[Reg[0]]
+12-th INST  Br 0 0 0 : If (Reg[0]==0) PC <- PC + 0
+13-th INST  Ld 0 0 0 : Reg[0] <- Mem[Reg[0]]
+14-th INST  Br 0 0 0 : If (Reg[0]==0) PC <- PC + 0
+15-th INST  Ld 0 0 0 : Reg[0] <- Mem[Reg[0]]
+)rf: (8 0 4 8 )
+memd-0: (9 8 0 0 ) memd-1: (8 8 0 0 )
+
+ISASimulator-0: memi: history: (0 1 2 3 )
+memd: history: (0: 0, 1: 0, 3: 0, )  array: (9 8 0 0 )
+
+ISASimulator-1: memi: history: (0 1 2 3 )
+memd: history: (0: 0, 1: 0, 3: 0, )  array: (8 8 0 0 )
+
+CPU-0: debug-commitLog: ()  underSpec: #t  specBr-ROBlink(bv #x2 4)
+memi: history: (0 1 2 11 12 12 13 14 )
+Dcache:
+  history: (0 0 1 1 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 1 1 )timFct: (0 0 0 0 )buffer-brID: (1 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 4
+  idle: (#f #f #f #f #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#f #f #t #t #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#t #t #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 1 2 11 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (3 3 5 3 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 1 2 3 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #t #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+CPU-1: debug-commitLog: ()  underSpec: #t  specBr-ROBlink(bv #x2 4)
+memi: history: (0 1 2 11 12 12 13 14 )
+Dcache:
+  history: (0 0 1 0 )(0 0 0 0 ), invisi: (0 0 0 0 )(0 0 0 0 )
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 1 0 )timFct: (0 0 0 0 )buffer-brID: (1 0 0 0 )
+adder:
+  absArbiter: timFct: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )valid: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 )
+  absDelay:   Valid: (0 0 0 0 )timFct: (0 0 0 0 )buffer-brID: (0 0 0 0 )
+ROB:
+  head: 0, tail: 4
+  idle: (#f #f #f #f #t #t #t #t #t #t #t #t #t #t #t #t ), waiting: (#t #f #t #t #f #f #f #f #f #f #f #f #f #f #f #f )
+  executing: (#f #f #f #f #f #f #f #f #f #f #f #f #f #f #f #f ), finished: (#f #t #f #f #f #f #f #f #f #f #f #f #f #f #f #f )
+  pc: (0 1 2 11 0 0 0 0 0 0 0 0 0 0 0 0 ), op: (3 3 5 3 0 0 0 0 0 0 0 0 0 0 0 0 ), brID: (0 1 2 3 0 0 0 0 0 0 0 0 0 0 0 0 )
+  underSpec: (#f #f #f #t #f #f #f #f #f #f #f #f #f #f #f #f ), specBr-ROBlink: (0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 )
+
+
+[       OK ] "get-bug-info" (6384ms cpu) (9180ms real) (239735 terms)
+1 success(es) 0 failure(s) 0 error(s) 1 test(s) run
+cpu time: 6384 real time: 9181 gc time: 817
+0
+1 test passed
+root@0691dfed0aa1:/vagrant#
+
