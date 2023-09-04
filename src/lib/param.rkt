@@ -53,7 +53,7 @@
 
 
 ; STEP Timing Factor
-; TODO: this should be zero
+; Note: use 1 to mean no timing factor
 (define param-adder-timFct-len 1)
 (define param-muler-timFct-len 1)
 

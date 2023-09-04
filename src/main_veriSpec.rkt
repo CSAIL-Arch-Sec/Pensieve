@@ -59,7 +59,16 @@
     (set! CPU-cfg-0 (CPU-cfg-evaluate CPU-cfg-0 sol))
     (set! CPU-cfg-1 (CPU-cfg-evaluate CPU-cfg-1 sol))
 
+    (printf (~a "\n"))
+    (printf (~a "\n"))
+    (printf (~a "**************************\n"))
+    (printf (~a "Simulate CPU with Secret 0\n"))
+    (printf (~a "**************************\n"))
     (match-define (list t0 t1) (simu ISASimulator-cfg-0 CPU-cfg-0 #t))
+    (printf (~a "\n"))
+    (printf (~a "**************************\n"))
+    (printf (~a "Simulate CPU with Secret 1\n"))
+    (printf (~a "**************************\n"))
     (match-define (list t2 t3) (simu ISASimulator-cfg-1 CPU-cfg-1 #t))
     (set! ISASimulator-0 t0)
     (set! CPU-0 t1)
@@ -67,15 +76,18 @@
     (set! CPU-1 t3)
 
 
+    (printf (~a "\n"))
+    (printf (~a "*****************************\n"))
     (printf (~a "Finish SMT Result Evaluation.\n"))
+    (printf (~a "*****************************\n"))
 
     (printf (~a
-      "cfg: " (ISASimulator-cfg-pair->string
-                ISASimulator-cfg-0 ISASimulator-cfg-1) "\n"
-      "ISASimulator-0: " ISASimulator-0 "\n"
-      "ISASimulator-1: " ISASimulator-1 "\n"
-      "CPU-0: " CPU-0 "\n"
-      "CPU-1: " CPU-1 "\n"
+      "******Init State******\n" (ISASimulator-cfg-pair->string
+        ISASimulator-cfg-0 ISASimulator-cfg-1) "\n"
+      "******ISASimulator-0******\n" ISASimulator-0 "\n"
+      "******ISASimulator-1******\n" ISASimulator-1 "\n"
+      "******CPU-0******\n" CPU-0 "\n"
+      "******CPU-1******\n" CPU-1 "\n"
     ))
   )
 

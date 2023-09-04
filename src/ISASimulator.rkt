@@ -51,7 +51,7 @@
   (define memi-cfg (ISASimulator-cfg-memi-cfg ISASimulator-cfg))
   (define memd-cfg (ISASimulator-cfg-memd-cfg ISASimulator-cfg))
 
-  (~a "memi: \n" memi-cfg
+  (~a "memi: \n" memi-cfg "\n"
       "rf: " rf-cfg "\n"
       "memd: " memd-cfg "\n")
 )
@@ -63,7 +63,7 @@
   (define memd-cfg-0 (ISASimulator-cfg-memd-cfg ISASimulator-cfg-0))
   (define memd-cfg-1 (ISASimulator-cfg-memd-cfg ISASimulator-cfg-1))
 
-  (~a "memi: \n" memi-cfg
+  (~a "memi: \n" memi-cfg "\n"
       "rf: " rf-cfg "\n"
       "memd-0: " memd-cfg-0 " memd-1: " memd-cfg-1 "\n")
 )

@@ -118,9 +118,9 @@
   (define (check-datainReady! port port-datainReady)
     ; STEP-1: get datainReady packet
     (match-define (list datainReady ROBlink) (port-datainReady port))
-    (when param-debug-print-on (printf (~a
-      "datainReady: " datainReady "  " "ROBlink: " ROBlink "\n"
-    )))
+    ; (when param-debug-print-on (printf (~a
+    ;   "datainReady: " datainReady "  " "ROBlink: " ROBlink "\n"
+    ; )))
     (when datainReady
       (when param-debug-assert (bug-assert
         (array-ref (ROB-waiting ROB) ROBlink)

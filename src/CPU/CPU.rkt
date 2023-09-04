@@ -267,13 +267,12 @@
   (match-define (list squash-E misPredBr-ROBlink-E misPredBr-brID-E nextPC-E)
                 (issue! memd adder muler Dcache ROB param-debug-print-on))
   (set-CPU-squash-E! CPU squash-E)
-  (when param-debug-print-on
-    (printf (~a
-      "squash-E: " squash-E "  "
-      "misPredBr-ROBlink-E: " misPredBr-ROBlink-E "  "
-      "misPredBr-brID-E: " misPredBr-brID-E "  "
-      "nextPC-E: " nextPC-E "\n"
-    )))
+  ; (when param-debug-print-on (printf (~a
+  ;   "squash-E: " squash-E "  "
+  ;   "misPredBr-ROBlink-E: " misPredBr-ROBlink-E "  "
+  ;   "misPredBr-brID-E: " misPredBr-brID-E "  "
+  ;   "nextPC-E: " nextPC-E "\n"
+  ; )))
   (set-CPU-misPredBr-ROBlink-E! CPU misPredBr-ROBlink-E)
   (set-CPU-misPredBr-brID-E! CPU misPredBr-brID-E)
   (set-CPU-nextPC-E! CPU nextPC-E)
@@ -426,7 +425,11 @@
       (set-CPU-underSpec!      CPU #t)
       (set-CPU-specBr-ROBlink! CPU tail))
 
-    (when param-debug-print-on (printf (~a "---->" "pc: " pc "  " "underSpec: " isSpec "  " "specBr-ROBlink: " tail "\n")))
+    ; (when param-debug-print-on (printf (~a
+    ;   "---->" "pc: " pc "  "
+    ;           "underSpec: " isSpec "  "
+    ;           "specBr-ROBlink: " tail "\n"
+    ; )))
   )
 
   (match-define (list valid-0 valid-1) (absDelay-dataoutValid absDelay))
@@ -478,7 +481,9 @@
                              target
                              (bvadd1 pc)))
 
-        (when param-debug-print-on (printf (~a "---->" "pc: " pc "  " "underSpec: " rs2-stall "\n")))
+        ; (when param-debug-print-on (printf (~a
+        ;   "---->" "pc: " pc "  " "underSpec: " rs2-stall "\n"
+        ; )))
         (list pc taken rs2-stall)
       ]
 
@@ -513,9 +518,9 @@
       ; STEP-1: get response packet
       (match-define (list ROBlink result) (dataout-unit! unit))
 
-      (when param-debug-print-on (printf (~a
-        "return ROBlink: " ROBlink "\n"
-      )))
+      ; (when param-debug-print-on (printf (~a
+      ;   "return ROBlink: " ROBlink "\n"
+      ; )))
       (when param-debug-assert (bug-assert
         (array-ref (ROB-executing ROB) ROBlink)
         #:msg "adder/muler/Dcache return to an un-executing ROB entry"))
@@ -570,16 +575,18 @@
         (inexact->exact (ceiling (log param-simuCycle 2)))))
   (define param-debug-print-on (CPU-param-debug-print-on CPU))
 
-  (when param-debug-print-on
-    (printf (~a "CPU:\n" CPU "\n\n")))
+  (when param-debug-print-on (printf (~a
+    "******CPU at cycle " (bitvector->natural clk) "******\n" CPU "\n"
+  )))
 
   (evalC! CPU)
   (evalE! CPU)
   (squash! CPU)
   (evalF! CPU)
 
-  ; (when param-debug-print-on
-  ;   (printf (~a "CPU:\n" CPU "\n\n")))
+  ; (when param-debug-print-on (printf (~a
+  ;   "CPU:\n" CPU "\n"
+  ; )))
 
   (tick-memi! memi)
   (tick-cache! Dcache)
@@ -614,7 +621,7 @@
     (lambda (entry) (map bitvector->natural entry))
     debug-commitLog))
   (~a
-    "debug-commitLog: " debug-commitLog-int "  "
+    ; "debug-commitLog: " debug-commitLog-int "  "
     "underSpec: " underSpec "  " "specBr-ROBlink" specBr-ROBlink "\n"
     "memi: " memi "\n"
     "Dcache: " Dcache "\n"

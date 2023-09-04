@@ -4,11 +4,12 @@
 This repository provides Pensieve, a security evaluation framework for microarchitectural defenses against speculative execution attacks.
 
 
+### Demo Video of Finding Attacks on Delay-on-Miss
 
 
 
 
-## Demo Video Will Come Soon ...
+### More in Our Paper
 
 Please check our ISCA 2023 paper, [Pensieve: Microarchitectural Modeling for Security Evaluation](https://people.csail.mit.edu/mengjia/data/Pensieve_ISCA_23.pdf) for a comprehensive understanding of the framework.
 Alternatively, its abstract can also provide you with a quick overview:
