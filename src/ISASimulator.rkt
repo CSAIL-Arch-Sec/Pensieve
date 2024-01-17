@@ -35,6 +35,21 @@
 )
 
 
+; EXPLAIN:
+; In general “evaluate a data structure (e.g., ISASimulator-cfg-0) using a
+; solution (e.g., sol)” is a terminology in Rosette meaning “read the solution
+; returned by the SMT solver, which is a special encoding of the counterexample.
+; Then, learn what is the concrete value stored in that data structure in the
+; counterexample”.
+; Recall that the counterexample from SMT solver is basically a mapping from
+; each symbolic value to a concrete value.
+; The goal of having the returned concert value is to launch another simulation
+; so that we know how the counterexample (i.e., the attack) looks like.
+; In Rosette, it has a default function to evaluate a single symbolic term.
+; But how to do the same thing for an arbitrary data structure?
+; This will relying on following functions that I defined by myself for each
+; data structure, such as `ISASimulator-cfg-evaluate` evaluates
+; `ISASimulator-cfg` data structure.
 (define (ISASimulator-cfg-evaluate ISASimulator-cfg-sym sol)
   (define rf-cfg (ISASimulator-cfg-rf-cfg ISASimulator-cfg-sym))
   (define memi-cfg (ISASimulator-cfg-memi-cfg ISASimulator-cfg-sym))

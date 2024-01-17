@@ -189,11 +189,32 @@
 )
 
 
+; EXPLAIN:
+; The function takes in an `array` containing many elements.
+; Each element might a symbolic term.
+; It also takes a `sol` (short for solution) that is returned from SMT solver
+; representing a counterexample, which is basically a mapping from symbolic
+; values to concrete values.
+; The goal of this function is to return the concrete value of the `array`
+; based on `sol`.
+; The `element-evaluate` is a fucntion that takes in an element in the array
+; and the solution, and return the concrete value of the element.
+; Thus, this function apply `element-evaluate` on each element and collect
+; the concrete value of each element.
+; Then, it create a new array with these concrete values and return it.
+; Finally, what is `element-evaluate`? If you check the place this function
+; is called, `element-evaluate` is a function called `evaluate`,
+; which is a in Rosette library that evaluate a single symbolic term.
 (define (array-evaluate array-sym element-evaluate sol)
   (define param-size (array-param-size array-sym))
   (define param-size-log (inexact->exact (ceiling (log param-size 2))))
   (define param-len (array-param-len array-sym))
 
+  ; EXPLAIN:
+  ; The function takes the index `i`, uses it to index `array-sym`
+  ; and gets a symbolic term.
+  ; It then looks at  the `sol` and find the concrete value of the symbolic term
+  ; and return the concrete value.
   (define (index-evaluate i)
     (define i-bv (integer->bitvector i (bitvector param-size-log)))
     (element-evaluate (array-ref array-sym i-bv) sol)
