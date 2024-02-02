@@ -39,54 +39,23 @@ This can guide you through the code that utilizes Rosette for symbolic execution
 
 Finally, we provide [documents](#Understand-the-Code-and-Verify-Your-Own-Design) on the implementation of our example designs to warm you up for using Pensieve to evaluate your own designs.
 
-
-
-
-
-
-## Environment Setup
-
-### Docker
-
+## Environment Setup and Running Example
 You can create a docker container (and delete it afterwards) with the following commands:
-
-1. Run `docker-compose up -d` to build up the container.
-2. Run `docker-compose exec env bash` to log in to the container.
-3. Run `docker-compose stop` to pause and `docker-compose up -d` to relaunch the container.
-4. Run `docker-compose down --rmi all` to clean up. (`docker system prune` can further clean up the cache, including your cache for other projects.)
-
-
-
-
-
-
-### Physical Machine
-
-To set up a physical machine environment, please refer to [Dockerfile](Dockerfile) to install racket, rosette, boolector, and dask (or HTcondor).
-
-
-
-
-
-
-## Run Examples
-
-You can test the framework on a few example designs with the following commands:
-
-1. Enter the repository folder. (Mounted at `/vagrant` in the container or virtual machine)
-2. Always run commands in this folder.
-3. We have a few pre-set parameters to evaluate example defense designs and find attacks:
+1. Run `git clone https://github.com/CSAIL-Arch-Sec/Pensieve.git` to grab this repository.
+2. Run `docker build  - < Dockerfile` to build up the continer.
+3. Run `docker run -it --rm -v ${PWD}:${PWD} -w ${PWD} -u root pensieve_env` to log in to the container.
+4. Run some pre-set parameters to evaluate example defense designs and find attacks:
     - Spectre attack on Baseline design: `raco test ++arg --param-saved-params ++arg spectre ++arg --param-saved-sizes ++arg spectre src/main_veriSpec.rkt`
     - Interference attack on DoM defense: `raco test ++arg --param-saved-params ++arg DoM ++arg --param-saved-sizes ++arg DoM src/main_veriSpec.rkt`
     - New interference attack variant on GhostMinion defense: `raco test ++arg --param-saved-params ++arg GhostMinion ++arg --param-saved-sizes ++arg GhostMinion src/main_veriSpec.rkt`
-4. You can further customize the parameters in `lib/param.rkt`.
 
-You can also evaluate a bash of designs with different parameters.
+Parameters is in `lib/param.rkt`.
+
 Please refer to the Artifact Appendix of the Pensieve paper for more details.
 
 
-
-
+### Physical Machine
+To set up a physical machine environment, please refer to [Dockerfile](Dockerfile) to install racket, rosette, boolector, and dask (or HTcondor).
 
 
 ## Understand the Terminal Output
